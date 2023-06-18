@@ -28,6 +28,25 @@ const AuthForm = () => {
     }
     setIsLoading(true);
     if(isLogin) {
+      fetch('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyC6MT_tbfGikKtW8VXzNYWGBHUVzV8f8z4', {
+        method: 'POST',
+        body:JSON.stringify(signUpData),
+        headers: {
+          'Content-Type' : 'application/json'
+        }
+
+      }).then(res => {
+        setIsLoading(false)
+        if(res.ok) {
+          res.json().then(data => {
+            console.log(data.idToken)
+          });
+        } else {
+          res.json().then(data => {
+            alert(data.error.message)
+            })
+        }
+      })
 
     }else{
       
