@@ -14,6 +14,8 @@ console.log(authCtx.isLoggedIn)
     history.replace('./auth')
 
   }
+
+ 
   return (
     <header className={classes.header}>
       <Link to='/'>
