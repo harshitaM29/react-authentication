@@ -7,17 +7,18 @@ const AuthContextProvider = props => {
     const [tokenId, setToken] = useState(token);
     const isUserLoggedIn = !!tokenId;
     const loginHandler = (data) => {
-        
-        localStorage.setItem("token",data.idToken)
         setToken(data.idToken);
+        localStorage.setItem("token",data.idToken)
+        
       
    
     }
   
 
     const logoutHandler = () => {
-        localStorage.removeItem("token")
         setToken(null);
+        localStorage.removeItem("token")
+       
      
     }
 
@@ -27,8 +28,7 @@ const AuthContextProvider = props => {
         onLogin:loginHandler,
         onLogout:logoutHandler
     }
-    console.log(authContext.isLoggedIn)
-
+  
     return (
         <AuthContext.Provider value={authContext}>
             {props.children}

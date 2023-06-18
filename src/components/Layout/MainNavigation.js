@@ -8,7 +8,7 @@ import { useContext } from 'react';
 const MainNavigation = () => {
   const history = useHistory();
   const authCtx = useContext(AuthContext)
-
+console.log(authCtx.isLoggedIn)
   const logoutHandler = () => {
     authCtx.onLogout();
     history.replace('./auth')
@@ -21,9 +21,9 @@ const MainNavigation = () => {
       </Link>
       <nav>
         <ul>
-         {!authCtx.isLoggedIn && <li>
+         {!authCtx.isLoggedIn && (<li>
             <Link to='/auth'>Login</Link>
-          </li> }
+          </li> )}
           {authCtx.isLoggedIn && <li>
             <Link to='/profile'>Profile</Link>
           </li> }

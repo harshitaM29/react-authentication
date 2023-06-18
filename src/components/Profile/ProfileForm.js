@@ -22,7 +22,7 @@ const ProfileForm = () => {
       })
     }).then(res => {
       alert('Password Changed Successfully');
-      history.replace('/auth')
+      history.replace('/')
     })
 
   }
